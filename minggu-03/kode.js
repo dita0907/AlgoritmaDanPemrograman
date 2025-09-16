@@ -1,29 +1,37 @@
 
-let antrian = [];
+let queue = [];
 
-const tampilkan = () => {
-  let list = document.getElementById('antrian');
-  list.innerHTML = '';
-  antrian.forEach((p, i) => {
-    let kelas = (i % 2 === 0) ? 'ganjil' : 'genap';
-    if (i === 0) kelas = 'aktif'; // yang paling depan jadi special
-    list.innerHTML += `<li class="${kelas}">💌 ${i + 1}. ${p}</li>`;
+function ambilAntrian() {
+  let nama = document.getElementById("inputNama").value.trim();
+  if (nama === "") {
+    alert("Silakan masukkan nama dulu 😊");
+    return;
+  }
+
+  queue.push(nama);
+  tampilkanDaftar();
+  alert("🎟 " + nama + " berhasil masuk antrian!");
+  document.getElementById("inputNama").value = "";
+}
+
+function panggilAntrian() {
+  if (queue.length > 0) {
+    let sekarang = queue.shift();
+    document.getElementById("namaSekarang").innerText = sekarang;
+    document.getElementById("statusPanggilan").innerText = 
+      "📢 Sedang dipanggil: " + sekarang;
+    tampilkanDaftar();
+  } else {
+    alert("Tidak ada antrian! 😢");
+  }
+}
+
+function tampilkanDaftar() {
+  let list = document.getElementById("listAntrian");
+  list.innerHTML = "";
+  queue.forEach((nama, index) => {
+    let li = document.createElement("li");
+    li.innerText = (index+1) + ". " + nama;
+    list.appendChild(li);
   });
-};
-
-function tambah() {
-  let n = nama.value.trim();
-  if (!n) return alert('😿 Nama tidak boleh kosong!');
-  antrian.push(n);
-  nama.value = '';
-  tampilkan();
 }
-
-function panggil() {
-  if (!antrian.length) return alert('✨ Antrian kosong! ✨');
-  alert('📢 Panggil: ' + antrian.shift() + ' 💖');
-  tampilkan();
-}
-
-
-
