@@ -1,57 +1,31 @@
-<<!DOCTYPE html>
-<html>
+<!DOCTYPE html>
+<html lang="id">
 <head>
-  <title>Antrian Lucu Imut</title>
-  <style>
-    body { 
-      font-family: "Comic Sans MS", cursive, sans-serif; 
-      margin: 20px; 
-      background: #fff0f6; 
-    }
-    h2 {
-      color: #ff69b4;
-      text-shadow: 1px 1px #ffc1e3;
-    }
-    input, button {
-      margin: 5px; padding: 8px 12px; border: none; border-radius: 20px;
-      font-size: 14px;
-    }
-    input {
-      background: #fff; border: 2px solid #ffb6c1;
-    }
-    button {
-      background: #ffb6c1; color: #fff; cursor: pointer;
-      transition: 0.3s;
-    }
-    button:hover {
-      background: #ff69b4;
-    }
-    ul { list-style-type: none; padding: 0; }
-    li {
-      padding: 10px; margin: 8px 0; border-radius: 15px;
-      font-weight: bold; font-size: 15px;
-      animation: pop 0.4s ease;
-    }
-    .ganjil { background: #ffe4e1; color: #d6336c; } /* pink pastel */
-    .genap { background: #e0f7fa; color: #00796b; } /* biru pastel */
-    .aktif { background: #fff3cd; color: #856404; border: 2px dashed #ff69b4; } /* kuning imut */
-    
-    @keyframes pop {
-      from { transform: scale(0.8); opacity: 0; }
-      to { transform: scale(1); opacity: 1; }
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Antrian Loket Nama</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h2>💖 Antrian Loket Imut 💖</h2>
+  <div class="container">
+    <h1>💖 Sistem Antrian Loket (Nama) 💖</h1>
 
-  <input id="nama" placeholder="Ketik nama di sini...">
-  <button onclick="tambah()">✨ Tambah</button>
-  <button onclick="panggil()">📣 Panggil</button>
+    <input type="text" id="inputNama" placeholder="Masukkan nama kamu...">
+    <br><br>
+    <button onclick="ambilAntrian()">✨ Ambil Antrian ✨</button>
+    <button onclick="panggilAntrian()">📢 Panggil Antrian 📢</button>
 
-  <ul id="antrian"></ul>
+    <div class="antrian-box">
+      <p id="statusPanggilan">Belum ada antrian</p>
+      <h2 id="namaSekarang">-</h2>
+    </div>
+
+    <div class="daftar-antrian">
+      <h3>📋 Daftar Antrian:</h3>
+      <ul id="listAntrian"></ul>
+    </div>
+  </div>
 
   <script src="kode.js"></script>
 </body>
 </html>
-
