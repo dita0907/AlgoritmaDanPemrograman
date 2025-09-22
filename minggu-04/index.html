@@ -1,0 +1,78 @@
+<!-- <!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Antrian Loket Nama</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>💖 Sistem Antrian Loket (Nama) 💖</h1>
+
+    <input type="text" id="inputNama" placeholder="Masukkan nama kamu...">
+    <br><br>
+    <button onclick="ambilAntrian()">✨ Ambil Antrian ✨</button>
+    <button onclick="panggilAntrian()">📢 Panggil Antrian 📢</button>
+
+    <div class="antrian-box">
+      <p id="statusPanggilan">Belum ada antrian</p>
+      <h2 id="namaSekarang">-</h2>
+    </div>
+
+    <div class="daftar-antrian">
+      <h3>📋 Daftar Antrian:</h3>
+      <ul id="listAntrian"></ul>
+    </div>
+  </div>
+
+  <script src="kode.js"></script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Linear Search Judul Buku</title>
+</head>
+<body>
+  <h2>Pencarian Judul Buku (Linear Search)</h2>
+
+  <label for="judul">Masukkan judul buku: </label>
+  <input type="text" id="judul" placeholder="contoh: Pemrograman Web">
+  <button onclick="cariBuku()">Cari</button>
+
+  <p id="hasil"></p>
+
+  <script>
+    
+    const buku = [
+      "Ayat-Ayat Cinta",
+      "Bumi Manusia",
+      "Laskar Pelangi",
+      " Negri 5 Menara",
+      
+    ];
+
+    function cariBuku() {
+      const input = document.getElementById("judul").value.trim().toLowerCase();
+      let ditemukan = false;
+
+      for (let i = 0; i < buku.length; i++) {
+        if (buku[i].toLowerCase() === input) {
+          document.getElementById("hasil").innerText =
+            `Buku "${buku[i]}" ditemukan pada indeks ${i}.`;
+          ditemukan = true;
+          break;
+        }
+      }
+
+      if (!ditemukan) {
+        document.getElementById("hasil").innerText =
+          `Buku "${input}" tidak ditemukan dalam daftar.`;
+      }
+    }
+  </script>
+</body>
+</html>
